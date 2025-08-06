@@ -1,32 +1,29 @@
-# 🚀 Terraform EC2 Instance Deployment (No Variables)
+# 🚀 Terraform AWS EC2 Instance with Custom VPC
 
-This repository contains a simple Terraform configuration to launch an **Amazon EC2 instance** on **AWS** without using variables. It's a minimal setup for quick testing or learning purposes.
+This project uses Terraform to provision a fully functional **Amazon EC2 instance** inside a **custom VPC** on **AWS**. The configuration includes networking resources like VPC, subnet, internet gateway, route table, security group, and the EC2 instance itself.
 
 ---
 
-## ✅ What It Does
+## 📦 What This Setup Includes
 
-- Creates a single EC2 instance (`t2.micro`)
-- Uses Amazon Linux 2 AMI (hardcoded)
-- Opens port 22 for SSH access
-- Optionally runs a basic user-data script
+- Custom **VPC** and **public subnet**
+- **Internet Gateway** and routing for internet access
+- **Security Group** allowing **SSH (22)** and **HTTP (80)**
+- EC2 instance (`t2.micro`) running in the subnet
+- Terraform outputs:
+  - Instance ID
+  - Public IP
+  - Public DNS
 
 ---
 
 ## 🛠️ Prerequisites
 
-Make sure you have the following installed and configured:
+Before you begin, ensure you have:
 
-- [Terraform](https://www.terraform.io/downloads.html)
-- AWS credentials configured (`aws configure`)
-
----
-
-## 📁 File Structure
+- [Terraform](https://www.terraform.io/downloads.html) installed
+- An [AWS account](https://aws.amazon.com/)
+- AWS CLI configured with credentials:
 
 ```bash
-terraform-ec2/
-├── main.tf         # EC2 instance and security group
-├── provider.tf     # AWS provider config
-├── outputs.tf      # Outputs for instance info
-└── README.md       # This file
+aws configure
